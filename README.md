@@ -1,6 +1,6 @@
-# A Create React App template on Gitpod
+# This is the repo for the chordz front end app, its designed to be used with Gitpod
 
-This is a [Create React App](https://create-react-app.dev/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
+This is a based on [Create React App](https://create-react-app.dev/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
 
 ## Next Steps
 
