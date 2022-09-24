@@ -11,7 +11,6 @@ type FretboardWrapperProps = {
 }
 
 export default function FretboardWrapper({
-  options,
   root,
   type,
 }: FretboardWrapperProps) {
@@ -29,7 +28,6 @@ export default function FretboardWrapper({
       fretboardRef.current = new Fretboard({
         el: fretboardDivRef.current,
         dotStrokeColor:  "black",
-        ...options
       });
       //if root and type are defined render scale of root and type else just render the fretboard
   
