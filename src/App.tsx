@@ -1,7 +1,6 @@
 import React, {useState,useEffect}from 'react';
 import ReactPlayer from 'react-player';
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
 import ChordCard from './components/chordcard/ChordCard';
 import FretboardWrapper from './components/fretboard/FretboardWrapper';
@@ -10,7 +9,6 @@ import SearchBar from './components/searchbar/SearchBar';
 function App(){
 
 const [data,setData] = useState({chord_segments:[{"chord":"D:maj","end":"6.687346896","start":"4.690430809"},{"chord":"A:min","end":"8.962902437","start":"6.733786805"}]})
-const [counter,setCounter]=useState(-1)
 // create a state variable to track if video is playing
 const [playing,setPlaying]=useState(false)
 // create a state variable to track the current time of the video
@@ -20,13 +18,12 @@ const [youtubeLink,setYoutubeLink]=useState("")
 
 const baseurl= 'https://seminar-dinner-venture-seating.trycloudflare.com/yt?ytl='
 const yturl='https://www.youtube.com/watch?v=StcA5KeNYoo'
-const url = baseurl+yturl;
 useEffect(() => {
   console.log("useEffect called");
   // Using an IIFE
   (async function anyNameFunction() {
     const response = await axios(baseurl+youtubeLink);
-    if(response.status==200){
+    if(response.status===200){
       console.log("response",response.data);
       setData(response.data)
     }
@@ -36,14 +33,6 @@ useEffect(() => {
     }
   })();
 }, [youtubeLink]);
-
-/**
- * 
- * use effect to update reset the counter to 0 when the data is updated
- */
-useEffect(() => {
-  setCounter(0)
-}, [data]);
 
 
 
@@ -123,10 +112,10 @@ export default App;
 
 // method turns string maj to major and min to minor
 const parseType = (type:string) => {
-  if(type=="maj"){
+  if(type==="maj"){
     return "major"
   }
-  if(type=="min"){
+  if(type==="min"){
     return "minor"
   }
   return type
@@ -137,7 +126,7 @@ const parseType = (type:string) => {
 */
 const parseChord = (chord:string) => {
   const split = chord.split(":")
-  if(split.length==2){
+  if(split.length===2){
     return {root:split[0],type:parseType(split[1])}
   }
   return null

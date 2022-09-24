@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { useEffect, useRef, useCallback } from "react";
-import { Fretboard,Systems } from "@moonwave99/fretboard.js";
+import { useEffect, useRef } from "react";
+import { Fretboard } from "@moonwave99/fretboard.js";
 import {colors} from "./config"
 type FretboardWrapperProps = {
     options?: any;
@@ -12,8 +12,6 @@ type FretboardWrapperProps = {
 
 export default function FretboardWrapper({
   options,
-  initialDots,
-  onDotsChange,
   root,
   type,
 }: FretboardWrapperProps) {
@@ -22,7 +20,6 @@ export default function FretboardWrapper({
   const fretboardRef: any = useRef(null);
   
   const fretboardDivRef:any = useRef(null);
-  const dots = useRef(initialDots);
 
 
 
@@ -59,8 +56,6 @@ export default function FretboardWrapper({
           : colors.defaultFill,
     });
 
-
-    const div = fretboardDivRef.current;
     return () => {
       console.log("remove");
       fretboardRef.current.removeEventListeners();
