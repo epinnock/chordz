@@ -17,7 +17,7 @@ const [currentTime,setCurrentTime]=useState(0)
 const [youtubeLink,setYoutubeLink]=useState("")
 
 const baseurl= 'https://seminar-dinner-venture-seating.trycloudflare.com/yt?ytl='
-const yturl='https://www.youtube.com/watch?v=StcA5KeNYoo'
+
 useEffect(() => {
   console.log("useEffect called");
   // Using an IIFE
@@ -49,10 +49,7 @@ const onPause = () => {
   setPlaying(false) 
 }
 
-/* callback for when the video is seeked*/
-const onSeek = (e: { target: { currentTime: React.SetStateAction<number>; }; }) => {
-  setCurrentTime(e.target.currentTime)
-} 
+
 /* callback for when the video is ended*/
 const onEnded = () => {
   setPlaying(false)
@@ -99,6 +96,7 @@ return (
       onProgress={onProgress}
       onEnded={onEnded}
       progressInterval={10}
+     
     />
     <ChordCard name={chordObj?.root} type ={chordObj?.type}/>
     <FretboardWrapper root ={chordObj?.root} type ={chordObj?.type} />
