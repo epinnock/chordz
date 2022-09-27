@@ -16,7 +16,7 @@ const [currentTime,setCurrentTime]=useState(0)
 // create a state variable to track the current youtube link
 const [youtubeLink,setYoutubeLink]=useState("")
 
-const baseurl= 'https://seminar-dinner-venture-seating.trycloudflare.com/yt?ytl='
+const baseurl= 'https://chordz-backend-rseivhhgya-uc.a.run.app/yt?ytl='
 
 useEffect(() => {
   console.log("useEffect called");
